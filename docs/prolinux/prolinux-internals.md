@@ -14,15 +14,24 @@ ProLinux 2 uses Arch Linux and Arch Linux ARM for the base system image during b
 
 ## Filesystem Layout
 
+![ls output of the disk/real root](./assets/prolinux-realroot-ls.png)
+
 todo
 
 ## Initramfs Boot Process
+![infographic of the boot process](./assets/prolinux-boot-infographic.png)
 ProLinux boots using a 2-stage kexec boot process. The device firmware first loads the kernel and initramfs from the boot partition.
 - Boot Partition Kernel+Initramfs gets loaded and started from PMOS\_BOOT.
 - Initramfs finds and mounts the PMOS\_ROOT partition. 
 - Initramfs reads the /data/prolinux.toml file and finds which A/B partition to boot into.
 - Initramfs mounts the prolinux\_{a/b}.squish root image
 - Initramfs executes kexec on the new kernel and initramfs.
+
+:::note
+
+PMOS_ROOT and PMOS_BOOT partition labels are the result of the way ProLinux images are built, where the initial platform image is created using pmbootstrap from postmarketOS, then cleaned out and modified.
+
+:::
 
 KExec allows the currently running kernel to be replaced with a new kernel image. This boot strategy allows the kernel and initramfs to be shipped together with the OS root and be A/B redundant. The kernel+initramfs that exists in /boot is treated like firmware, since it is fundementally unredundant and is only updated if nessesary.
 

@@ -19,9 +19,18 @@ $ fastboot flash boot boot.img
 $ fastboot flash userdata oneplus-echilada.img
 ```
 
+:::warning
+
+The KExec-based boot mechanism is currently disabled by default on Android/SDM845 devices (the modem keeps crashing, we'd love help debugging this!)
+
+This means you **must** flash boot.img **after every system update**, or your device will not boot if the kernel modules in the squashfs root have been updated.
+
+:::
+
 ## ProLinux 2 Embedded / Server
 
 ### x86 UEFI
-ProLinux 2 images for UEFI platforms are standard GPT-formatted disk images. Currently there is no standalone installation media, so there are a few alternative installation approaches.
-- Boot a live OS from a USB, copy/download the ProLinux 2 disk image to external storage, and flash it with dd.
+ProLinux 2 images for UEFI platforms are standard GPT-formatted disk images. Currently there is no standalone installation media, so there are a few alternative installation approaches. If you desire a live environment, you can simply flash and boot ProLinux from a USB. Otherwise,
+- Boot a alternate live OS from a USB (ex. Fedora, Ubuntu), and `curl https://cdn.sineware.ca/repo/prolinux/embedded/dev/x64/tablet-x64uefi.img.gz | gunzip | dd of=/dev/sdX bs=4M status=progress` 
+- Boot a alternate live OS from a USB, copy/download the ProLinux 2 disk image to external storage, and flash it with dd.
 - Flash ProLinux 2 to a USB and boot it, then dd the usb itself (/dev/sdX) to the disk (less recommended)
