@@ -43,7 +43,7 @@ The version of fastboot distributed by distros can have issues flashing ProLinux
 
 The KExec-based boot mechanism is currently disabled by default on Android/SDM845 devices (the modem keeps crashing, we'd love help debugging this!)
 
-This means you **must** flash boot.img **after every system update**, or your device will not boot if the kernel modules in the squashfs root have been updated.
+This means you **must** download and flash boot.img **after every system update**, or your device will not boot if the kernel modules in the squashfs root have been updated.
 
 :::
 

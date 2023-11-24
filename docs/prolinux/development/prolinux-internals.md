@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # ProLinux Internals & Architecture
@@ -14,12 +14,12 @@ ProLinux 2 uses Arch Linux and Arch Linux ARM for the base system image during b
 
 ## Filesystem Layout
 
-![ls output of the disk/real root](./assets/prolinux-realroot-ls.png)
+![ls output of the disk/real root](../assets/prolinux-realroot-ls.png)
 
 todo
 
 ## Initramfs Boot Process
-![infographic of the boot process](./assets/prolinux-boot-infographic.png)
+![infographic of the boot process](../assets/prolinux-boot-infographic.png)
 ProLinux boots using a 2-stage kexec boot process. The device firmware first loads the kernel and initramfs from the boot partition.
 - Boot Partition Kernel+Initramfs gets loaded and started from PMOS\_BOOT.
 - Initramfs finds and mounts the PMOS\_ROOT partition. 
