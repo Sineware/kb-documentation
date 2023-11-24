@@ -7,7 +7,21 @@ sidebar_position: 1
 Currently ProLinux 2 images are shipped as complete disks images that can be flashed to a devices local storage. Dual-booting is currently not supported.
 
 
+:::tip
+
+The default password is `147147`
+
+:::
+
+
 ## ProLinux 2 Mobile
+
+:::note
+
+These are very experimental images, so many phone features like calling and SMS are not supported!
+
+:::
+
 ### Standard Devices
 For mobile devices such as a Pine64 PinePhone or PinePhine Pro, installing is as easy as writing the .img file to an SD Card using dd or Etcher.
 
@@ -18,6 +32,12 @@ For Android-based mobile devices such as the OnePlus 6, there are two files that
 $ fastboot flash boot boot.img
 $ fastboot flash userdata oneplus-echilada.img
 ```
+
+:::tip
+
+The version of fastboot distributed by distros can have issues flashing ProLinux. You may want to use fastboot from the (Google Platform SDK Tools)[https://developer.android.com/tools/releases/platform-tools]
+
+:::
 
 :::warning
 
