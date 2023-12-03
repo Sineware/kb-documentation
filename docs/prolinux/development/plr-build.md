@@ -10,7 +10,7 @@ plr-build connects to the phone over SSH and
 
 
 # Requirements
-You must have `docker` installed on you development computer to run the distcc daemon container.
+You must have `docker` installed on your development computer to run the distcc daemon container.
 
 # Installing
 Checkout the ProLinux Build System repo:
