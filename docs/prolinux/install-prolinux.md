@@ -9,7 +9,7 @@ Currently ProLinux 2 images are shipped as complete disks images that can be fla
 
 :::tip
 
-The default password is `147147`
+The username is `user` and the default password is `147147`
 
 :::
 
