@@ -27,7 +27,7 @@ ProLinux boots using a 2-stage boot process. The device firmware first loads GRU
 Because the kernel and initramfs exist inside the squashfs, the kernel and initramfs are updated as part of the system update process and are A/B redundant.
 
 Once the kernel is booted, the following occurs:
-- Initramfs finds and mounts the PMOS\_ROOT partition, reads the /data/prolinux.toml, mounts the prolinux\_{a/b}.squish file.
+- Initramfs finds and mounts the PLFS_ROOT partition, reads the /data/prolinux.toml, mounts the prolinux\_{a/b}.squish file.
 - If the root lock is enabled, a OverlayFS is mounted with the squish file and persistroot as the lower dir, and a tmpfs as the upper dir.
 - If the root lock is disabled, a OverlayFS is mounted with the squish file as the lower dir, and the persistroot as the upper dir.
 - /data/home is bind mounted into the OverlayFS.
