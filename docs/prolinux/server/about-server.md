@@ -1,5 +1,6 @@
 ---
-sidebar_position: 1
+menu_order: 0
+title: About ProLinux Server
 ---
 
 # About ProLinux Server

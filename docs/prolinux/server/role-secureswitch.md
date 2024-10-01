@@ -1,4 +1,6 @@
-import ExampleHardware from '../assets/secureswitch-example-hardware.webp';
+---
+title: Server Role: SecureSwitch
+---
 
 # Server Role: SecureSwitch
 The `secure-switch-appliance` role configures a ProLinux Server with multiple NICs as a switch that passes traffic through [Suricata](https://suricata.io/), for Intrusion Detection and Prevention (IPS/IDS).
@@ -14,7 +16,7 @@ You can find off-the-shelf router Mini PCs with embedded hardware, like this one
 
 :::
 
-<img src={ExampleHardware} width="200"/>
+![Example Hardware](/_images/secureswitch-example-hardware.webp)
 
 ## Installation
 
@@ -45,7 +47,7 @@ ssh -L 5636:localhost:5636 user@<server>
 
 Then open your web browser and go to `http://localhost:5636`.
 
-![Evebox Interface Screenshot](../assets/evebox.png)
+![Evebox Interface Screenshot](/_images/evebox.png)
 
 Suricata configuration is located at `/sineware/data/server/secure_switch/etc`, logs at `/sineware/data/server/secure_switch/logs`, and rules at `/sineware/data/server/secure_switch/rules`. 
 

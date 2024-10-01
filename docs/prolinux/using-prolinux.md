@@ -1,11 +1,12 @@
 ---
-sidebar_position: 2
+title: Using ProLinux
+menu_order: 1
 ---
 
 # Using ProLinux
 
-## Debugging using SSH over USB
-ProLinux Mobile devices expose an ethernet interface over their USB port. When plugged into a computer running Linux, you can ssh into the phone using `ssh user@172.16.42.1`.
+<!--## Debugging using SSH over USB
+ProLinux Mobile devices expose an ethernet interface over their USB port. When plugged into a computer running Linux, you can ssh into the phone using `ssh user@172.16.42.1`. -->
 
 ## Installing Apps
 
@@ -16,4 +17,4 @@ You can use the Flatpak CLI (from [Flathub](https://flathub.org/en), the default
 ## Command Line Configuration
 `plctl` is the main command that interacts with ProLinuxD to modify the system configuration.
 
-![plctl help output](./assets/plctl-output.png)
+![plctl help output](/_images/plctl-output.png)
