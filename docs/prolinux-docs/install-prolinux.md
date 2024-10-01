@@ -21,7 +21,7 @@ growpart /dev/sdX 2
 resize2fs /dev/sdX2
 ```
 
-**ARM64 builds are more experimental, and currently can only really be booted in virtual machines, or on devices with mainline Linux support and a compliant UEFI+ACPI implementation.**
+**ARM64 builds are more experimental, and currently can be booted in virtual machines, or on devices with mainline Linux support and a compliant UEFI implementation.**
 
 **QEMU Command for aarch64:**
 ```bash
@@ -47,7 +47,7 @@ sudo qemu-system-aarch64 \\
 
 Previously, ProLinux has shipped device-specific images based on a modified PostmarketOS image (modifying the initramfs in the process). For maintainability reasons those images have been deprecated, with the hope that mainline and U-Boot support can mature on more platforms. Therefore, the mobile images share identical hardware support to the desktop images as they are generic UEFI images.
 
-This means that in the near future, the UEFI images will hopefully boot on the PinePhone and PinePhone Pro with Tow-Boot, and on Snapdragon 845 devices (such as the Oneplus 6 and Poco F1) with U-Boot.
+Currently, the images have been tested on the PinePhone (though with limited functionality). In the near future, the UEFI images will hopefully be more complete, and also work on more devices, such as the Snapdragon 845 devices (such as the Oneplus 6 and Poco F1) with U-Boot.
 
 <!--:::note
 
