@@ -9,4 +9,5 @@ This page documents hardware and devices supported by ProLinux. If you have succ
 |--------|----------|-------|
 | QEMU x86_64 (UTM App) | Yes | Requires UEFI firmware and Virtio GPU |
 | QEMU aarch64 (Asahi Linux) | Yes | Requires UEFI firmware and Virtio GPU |
+| Pine64 PinePhone | Yes | Requires Tow-Boot (Vol-Down to boot from SD Card). Slow, partial hardware support |
 
