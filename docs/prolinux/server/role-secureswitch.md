@@ -1,5 +1,5 @@
 ---
-title: Server Role: SecureSwitch
+title: Server Role - SecureSwitch
 ---
 
 # Server Role: SecureSwitch
