@@ -3,8 +3,6 @@ menu_order: 0
 title: About ProLinux Server
 ---
 
-# About ProLinux Server
-
 ProLinux Server is a container host platform powered by **podman**, an OCI compliant container manager with Docker compatibility, and standalone application server powered by **PM2**. Together they let you run any workload with ease.
 
 ProLinux Server's immutable root and A/B atomic updates makes it a a trusted and reliable platform for running your applications.

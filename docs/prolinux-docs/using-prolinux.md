@@ -3,8 +3,6 @@ title: Using ProLinux
 menu_order: 1
 ---
 
-# Using ProLinux
-
 <!--## Debugging using SSH over USB
 ProLinux Mobile devices expose an ethernet interface over their USB port. When plugged into a computer running Linux, you can ssh into the phone using `ssh user@172.16.42.1`. -->
 

@@ -3,8 +3,6 @@ title: ProLinux Internals & Architecture
 menu_order: 0
 ---
 
-# ProLinux Internals & Architecture
-
 Sineware ProLinux 2 is a GNU+Linux based operating system that features an immutable root filesystem and an A/B boot scheme. It uses Flatpak as the standard platform for application installation.
 
 An immutable rootfs means that the core system files, such as those in /etc and /usr, are mounted as read-only and cannot be modified. The filesystem itself exists as a SquashFS image. This ensures the entire system can be updated at once, and ensures that system integrity is always maintained.
@@ -21,23 +19,15 @@ todo
 
 ## Initramfs Boot Process
 ![infographic of the boot process](/_images/prolinux-boot-infographic.png)
-ProLinux boots using a 2-stage kexec boot process. The device firmware first loads the kernel and initramfs from the boot partition.
-- Boot Partition Kernel+Initramfs gets loaded and started from PMOS\_BOOT.
-- Initramfs finds and mounts the PMOS\_ROOT partition. 
-- Initramfs reads the /data/prolinux.toml file and finds which A/B partition to boot into.
-- Initramfs mounts the prolinux\_{a/b}.squish root image
-- Initramfs executes kexec on the new kernel and initramfs.
+ProLinux boots using a 2-stage boot process. The device firmware first loads GRUB EFI image.
+- GRUB finds the PLFS_ROOT partition, and loads the /data/grub-source.cfg file (which is maintained by ProLinuxD)
+- grub-source.cfg exports the currently selected root slot, and the device codename.
+- GRUB uses the slot to mount the squashfs (prolinux_${selected_root}.squish) as loop, and then loads the kernel+initramfs from (loop)/opt/device-support/${deviceinfo_codename}/ 
 
-:::note
+Because the kernel and initramfs exist inside the squashfs, the kernel and initramfs are updated as part of the system update process and are A/B redundant.
 
-PMOS_ROOT and PMOS_BOOT partition labels are the result of the way ProLinux images are built, where the initial platform image is created using pmbootstrap from postmarketOS, then cleaned out and modified.
-
-:::
-
-KExec allows the currently running kernel to be replaced with a new kernel image. This boot strategy allows the kernel and initramfs to be shipped together with the OS root and be A/B redundant. The kernel+initramfs that exists in /boot is treated like firmware, since it is fundementally unredundant and is only updated if nessesary.
-
-Once the new kernel is booted, the following occurs:
-- New Initramfs finds and mounts the PMOS\_ROOT partition, reads the /data/prolinux.toml, mounts the prolinux\_{a/b}.squish file.
+Once the kernel is booted, the following occurs:
+- Initramfs finds and mounts the PMOS\_ROOT partition, reads the /data/prolinux.toml, mounts the prolinux\_{a/b}.squish file.
 - If the root lock is enabled, a OverlayFS is mounted with the squish file and persistroot as the lower dir, and a tmpfs as the upper dir.
 - If the root lock is disabled, a OverlayFS is mounted with the squish file as the lower dir, and the persistroot as the upper dir.
 - /data/home is bind mounted into the OverlayFS.

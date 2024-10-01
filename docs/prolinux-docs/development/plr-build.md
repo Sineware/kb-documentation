@@ -1,7 +1,6 @@
 ---
 title: Remote Building KDE Components (plr-build)
 ---
-# Remote Building KDE Components (plr-build)
 
 If you want to hack on the Plasma shell or other KDE apps installed on a ProLinux 2 Mobile device, you can use `plr-build`, a utility shipped with the ProLinux Build System that automates the process of compiling and installing a source tree (from your x86_64 development computer) on an aarch64 device, using distcc in a container with a cross-compiling toolchain to speed up the build.
 

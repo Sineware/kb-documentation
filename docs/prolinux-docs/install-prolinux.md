@@ -3,8 +3,6 @@ title: Installing ProLinux
 menu_order: 0
 ---
 
-# Installing ProLinux 2
-
 Currently ProLinux 2 images are shipped as complete disks images that can be flashed to a devices local storage. Dual-booting is currently not supported.
 
 
@@ -24,6 +22,26 @@ resize2fs /dev/sdX2
 ```
 
 **ARM64 builds are more experimental, and currently can only really be booted in virtual machines, or on devices with mainline Linux support and a compliant UEFI+ACPI implementation.**
+
+**QEMU Command for aarch64:**
+```bash
+sudo qemu-system-aarch64 \
+    -machine virt \
+    -cpu host \
+    -smp 2 \
+    -m 2048 \
+    -drive if=pflash,format=raw,file=/usr/share/edk2/aarch64/QEMU_EFI-pflash.raw,readonly=on \
+    -serial stdio \
+    -display gtk,gl=on \
+    -device virtio-gpu-pci \
+    -device qemu-xhci,id=usb,bus=pcie.0,addr=0x3 \
+    -device usb-kbd \
+    -device usb-tablet \
+    -device virtio-scsi-device,id=scsi \
+    -drive file=sineware-arm64.img,format=raw,if=none,id=hd0 \
+    -device scsi-hd,drive=hd0 \
+    -enable-kvm
+```
 
 ## ProLinux 2 Mobile
 
