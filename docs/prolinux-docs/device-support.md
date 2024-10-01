@@ -2,7 +2,7 @@
 title: Device Support
 ---
 
-This page documents hardware and devices supported by ProLinux. If you have successfully or unsuccessfully used a device with ProLinux, please contribute to this page by submitting a pull request about its state!
+This page documents hardware and devices supported by ProLinux. If you have successfully or unsuccessfully used a device with ProLinux, please contribute to this page by [submitting a pull request](https://github.com/Sineware/kb-documentation/blob/main/docs/prolinux-docs/device-support.md) about its state!
 
 ## Devices
 | Device | Booting? | Notes |
