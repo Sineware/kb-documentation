@@ -13,7 +13,11 @@ Currently ProLinux 2 images are shipped as complete disks images that can be fla
 
 ### x86 & ARM64 UEFI
 ProLinux 2 images for UEFI platforms are standard GPT-formatted disk images. Currently there is no standalone installation media, so there are a few alternative installation approaches. If you desire a live environment, you can simply flash and boot ProLinux from a USB. Otherwise, the easiest way is to:
-- Flash ProLinux 2 to a USB and boot it, then dd the usb itself (/dev/sdX) to the disk
+- Flash ProLinux 2 to a USB and boot it, then dd the usb itself (/dev/sdX) to the disk. `blkid` can tell you which disk is the USB (look for LABEL=`PLFS_`).
+
+```bash
+dd if=/dev/sdX of=/dev/sdY bs=4M oflag=direct,sync status=progress
+```
 
 Then you'll want to expand the image to fill the disk space:
 ```bash
